@@ -1,0 +1,254 @@
+@media (max-width:1050px){
+    #avisos{
+        .col:first-of-type{
+            padding-left: 20px;
+        }
+    }
+    #contato{
+        .col:first-of-type{
+            padding-left: 50px;
+        }
+    }
+    #associados{
+        nav{
+            width: 100%;
+            padding: 0 50px;
+            ul{
+                width: 100%;
+                li{
+                    a{
+                        height: 300px;
+                        .typcn{
+                                transform: scale(2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:1000px){
+    #content{
+        padding: 0 50px;
+    }
+}
+@media (max-width:950px){
+    header{
+        .col{
+            &:first-of-type{
+                flex: 1 1 200px;
+                margin: 0;
+            }
+            &:last-of-type{
+                flex: 4 4 auto;
+            }
+        }
+    }
+    #clube{
+        #gallery{
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 850px){
+    #clube{
+        flex-direction: column;
+        section{
+            flex-basis: auto;
+            ul{
+                position: relative;
+                bottom: 0;
+                margin-top: 40px;
+                li{
+                    max-width: 250px;
+                }
+            }
+        }
+        #gallery{
+            flex-basis: auto;
+            background: #000;
+            ul{
+                li{
+                    width: 20%;
+                    float: left;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    #associados{
+        ul{
+            li{
+                a:hover{
+                &:after{
+                    left: 20px;
+                }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 800px){
+    #overlayContent{
+        &.assoc{
+            flex-direction: column;
+            section{
+                flex-basis: auto;
+                &.regs{
+                    margin-top: 0;
+                    order:2;
+                }
+                #team{
+                    margin-top: 120px;
+                    > li{
+                        flex-basis: 250px;
+                        margin: 20px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 650px){
+    header{
+        height: 400px;
+        nav{
+            ul{
+                width: 100%;
+                li{
+                    display: block;
+                    float: none;
+                    text-align: right;
+                    margin-right: 50px
+                }
+            }
+        }
+        #location{
+            white-space: nowrap;
+        }
+    }
+    #avisos{
+        flex-direction: column;
+        padding: 0 50px 50px 50px;
+        .col{
+            padding: 0;
+            margin: 0;
+            flex-basis: auto !important;
+        }
+        h2{
+            span{
+                display: inline;
+                margin-left: 10px;
+            }
+            text-align: left;
+        }
+    }
+    #content{
+        h1{
+            font-size: 40px;
+            line-height: 40px;
+            span{
+                margin-top: 0
+            }
+        }
+    }
+}
+@media (max-width:600px){
+    .skew2{
+        &:before{
+            transform: perspective(200px) rotateY(1deg) translateZ(-100px) scale(1.5);
+        }
+    }
+    #associados{
+        margin-top: 90px;
+        ul{
+            li{
+                width: 100%;
+                margin-bottom: 20px;
+                a{
+                    height: auto !important;
+                    padding: 20px 0;
+                    .typcn{
+                        margin-top: 50px;
+                    }
+                }
+            }
+        }
+    }
+    #contato{
+        flex-direction: column;
+        .col{
+            flex-basis: auto;
+        }
+        &:before{
+            background-image: none !important;
+        }
+    }
+    #overlay{
+        &.show{
+            transform: translate3d(20%,0,0) skewX(-10deg);
+        }
+    }
+}
+@media (max-width:500px){
+    #clube{
+        #gallery{
+            ul{
+                li{
+                    width:33.33%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 450px){
+    header{
+        height: 300px;
+        nav{
+            ul{
+                display: none;
+            }
+        }
+    }
+    #avisos{
+        margin-top: 70px;
+        padding-left: 20px;
+        padding-right: 20px;
+        nav{
+            ul{
+                li{
+                    width: 100%;
+                    transform: none !important;
+                }
+            }
+        }
+    }
+    #clube{
+        h2{
+            white-space: normal;
+        }
+        section{
+            ul{
+                li{
+                    float: none;
+                    width: 100%;
+                    display: block;
+                    clear: both;
+                }
+            }
+        }
+    }
+    #overlayContent{
+        h2{
+            font-size: 50px;
+        }
+        &.assoc{
+            section{
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+        }
+    }
+}

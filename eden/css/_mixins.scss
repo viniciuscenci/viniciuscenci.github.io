@@ -1,0 +1,76 @@
+%regularFont{
+    font-family: 'open_sansregular',sans-serif;
+}
+
+%boldFont{
+    font-family: 'open_sansextrabold',sans-serif;
+    font-weight: bold;
+}
+
+%displayBlock{
+    display:block;
+}
+
+%displayFlex{
+    display: flex;
+}
+
+%positionRelative{
+    position: relative;
+}
+
+%positionAbsolute{
+    position: absolute;
+}
+
+%positionFixed{
+    position: fixed;
+}
+
+%floatLeft{
+    float: left;
+}
+
+%floatRight{
+    float: right;
+}
+
+%displayInline{
+    display: inline;
+}
+
+%uppercase{
+    text-transform: uppercase;
+}
+
+%textShadow{
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+%textAlignRight{
+    text-align: right;
+}
+
+%textAlignLeft{
+    text-align: left;
+}
+
+%textAlignCenter{
+    text-align: center;
+}
+
+%underline{
+    text-decoration: underline;
+}
+%borderBox{
+    box-sizing: border-box;
+}
+
+%transitionFix{
+    backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+}
+
+%fixJagged{
+    outline: 1px solid transparent;
+}
