@@ -39,7 +39,7 @@ body{
     line-height: 18px;
     overflow-x: hidden;
     &.noOverflow{
-        overflow: hidden;
+        @extend %overflowHidden;
     }
 }
 
@@ -346,6 +346,7 @@ header{
 .image-pop{
     @extend %positionRelative;
     display: inline-block;
+    line-height: 150px;
     &:before{
         @extend %positionAbsolute;
         @extend %textAlignCenter;
@@ -355,7 +356,6 @@ header{
         left: 0;
         width: 100%;
         height: 100%;
-        line-height: 150px;
         font-size: 50px;
         color: #fff;
         background: rgba(0,0,0,0.5);
@@ -414,16 +414,31 @@ header{
         ul{
             li{
                 @extend %floatRight;
-                &.big {
-                    a{
-                        &:before{
-                            line-height: 300px;
-                        }
-                    }
+                @extend %overflowHidden;
+                @extend %positionRelative;
+                width: 92px;
+                height: 92px;
+                img{
+                    height: 100%;
                 }
                 a{
                     @extend .image-pop;
-                    display: block;
+                    @extend %displayBlock;
+                    @extend %positionAbsolute;
+                    top:0; left: 0; bottom: 0; right: 0;
+                    line-height: 92px;
+                }
+                &.big {
+                    width: 184px;
+                    height: 184px;
+                    a{
+                        &:before{
+                            line-height: 184px;
+                        }
+                    }
+                    &:nth-child(odd){
+                        @extend %floatLeft;
+                    }
                 }
             }
         }
@@ -466,7 +481,7 @@ header{
                 color: #fff;
                 height: 335px;
                 border-radius: 10px;
-                overflow: hidden;
+                @extend %overflowHidden;
                 transition: all .5s ease;
                 .typcn{
                     font-size: 50px;
@@ -710,7 +725,7 @@ footer{
         @extend %displayFlex;
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        @extend %overflowHidden;
         align-items: center;
         justify-content: center;
         img{

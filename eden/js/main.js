@@ -15,6 +15,7 @@ $(function(){
             this.attachListeners();
             this.trackEscape();
             this.scrollLinks();
+            this.responsive();
         },
         scrollLinks: function(){
             $('a[href*="#"]:not([href="#"])').click(function() {
@@ -29,6 +30,24 @@ $(function(){
                   }
                 }
             });
+        },
+        responsive: function(){
+            function checkResponsive(ww){
+                if(ww < 850)
+                {
+                    $('#gallery img').each(function(i,e){
+                        var $this = $(e);
+                        var src = $this.attr('src');
+                        if(src.indexOf('-big-') <= -1){
+                            $this.attr('src',src.replace('thumb-','thumb-big-'));
+                        }
+                    });
+                }
+            }
+            $(window).resize($.debounce(100,function(){
+                checkResponsive($(this).width());
+            }));
+            checkResponsive($(window).width());
         },
         trackEscape: function(){
             var _self = this;
@@ -96,10 +115,11 @@ $(function(){
                 var $this = $(this);
                 var imgUrl = $this.attr('href');
                 var caption = $this.find('img').attr('alt');
+                caption = caption.length > 0 ? '<div id="photoCaption">'+caption+'</div>' : '';
                 var image = new Image();
                 image.classList.add('fadeIn');
                 _self.showOverlay('gal');
-                overlayContent.html('<div class="cssload-loader"></div><div id="photoCaption">'+caption+'</div>').addClass('show gal');
+                overlayContent.html('<div class="cssload-loader"></div>'+caption).addClass('show gal');
                 corner.addClass('show');
                 image.onload = function(){
                     $('.cssload-loader').remove();
@@ -124,3 +144,13 @@ $(function(){
     };
     Eden.init();
 });
+
+/*
+ * jQuery throttle / debounce - v1.1 - 3/7/2010
+ * http://benalman.com/projects/jquery-throttle-debounce-plugin/
+ *
+ * Copyright (c) 2010 "Cowboy" Ben Alman
+ * Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/about/license/
+ */
+(function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
