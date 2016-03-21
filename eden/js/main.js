@@ -72,7 +72,7 @@ $(function(){
                 _self.closeOverlay();
                 return false;
             });
-            $("#associados li a").click(function(){
+            $("#associados li a, .popup").click(function(){
                 isOverlayOpen = true;
                 _self.showOverlay();
                 overlayContent.html($('#'+$(this).data('content')).html()).addClass('show assoc');

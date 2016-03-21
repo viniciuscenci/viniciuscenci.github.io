@@ -167,6 +167,30 @@ a{
     }
 }
 
+#features_beneficios{
+    ul{
+        @extend %displayFlex;
+        flex-wrap: wrap;
+        li{
+            flex-basis: 25%;
+            box-sizing: border-box;
+            padding: 5px;
+            @extend %displayFlex;
+            align-items: center;
+            div{
+                background: #fff;
+                border-radius: 5px;
+                flex: 1;
+                width: 100%;
+                padding: 10px;
+                @extend %textAlignCenter;
+                @extend %displayFlex;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
 img.fadeIn{
     animation: fadeIn 1s ease;
 }
@@ -381,6 +405,16 @@ header{
         flex-shrink: 1;
         p{
             color: #aaa;
+            line-height: 1.2em;
+        }
+        a.features{
+            line-height: 30px;
+            color: $colorA;
+            &:before{
+                font-size: 30px;
+                margin-right: 10px;
+                vertical-align: middle
+            }
         }
         ul{
             @extend %positionAbsolute;
@@ -672,14 +706,19 @@ footer{
                 align-items: center;
                 flex-wrap: wrap;
                 align-content: center;
+                margin-top: 100px;
                 li{
                     @extend %textAlignCenter;
                     flex: 1;
+                    flex-basis: 33.3%;
                     .image{
                         margin: 0 auto;
                         display: inline-block;
                         @extend %positionRelative;
                         z-index: -1;
+                        img{
+                            width: 150px;
+                        }
                         &:before{
                             @extend %positionAbsolute;
                             content: "";
@@ -705,6 +744,7 @@ footer{
                         @extend %boldFont;
                         font-size: 25px;
                         margin-top: 20px;
+                        margin-bottom: 5px;
                     }
                     p{
                         margin-top: 0;
