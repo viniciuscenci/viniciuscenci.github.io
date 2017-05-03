@@ -1,0 +1,398 @@
+@import 'vars'
+@import 'reset'
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,700')
+
+.clearfix
+    &:before, &:after
+        content: ""
+        display: table
+    &:after
+        clear: both
+
+//grid
+$columns : 6
+$gap : 20px
+$maxWidth: 1200px
+
+.container
+    @extend %displayFlex
+    width: 100%
+    align-items: center
+
+@for $i from 1 through $columns
+    .col-#{$i}
+        @extend .clearfix
+        @extend %borderBox
+        padding: 0 $gap / 2
+        flex: 1 1 (100% / $columns * $i)
+        // box-shadow: inset 0px 0px 2px white
+    .offset-#{$i}
+        margin-left: (100% / $columns * $i)
+
+.no-shrink
+    flex-shrink: 0
+
+.no-grow
+    flex-grow: 0
+
+.spread
+    @extend %displayFlex
+    flex-direction: column
+    justify-content: space-between
+
+//main
+.wrapper
+    @extend %positionRelative
+    max-width: $maxWidth
+    margin: 0 auto
+
+$mainColor : #1be25b
+$background : #363636
+$fontColor : #fff
+$oddRowBackground : #252525
+
+body
+    font: 16px 'Dosis', sans-serif
+    background: $background
+    color: $fontColor
+
+a
+    color: $fontColor
+    text-decoration: none
+
+p
+    margin: 20px 0
+
+section
+    margin-bottom: 100px
+    &.double-spacing
+        margin-bottom: 200px
+
+.odd-section
+    background: $oddRowBackground url('../img/pattern.png')
+    padding: 100px 0
+    margin-bottom: 100px
+    &.double-padding
+        padding: 200px 0
+
+h1, h2, h3, h4, h5, h6
+    font-weight: 700
+    color: $mainColor
+    line-height: 1em
+
+h1
+    font-size: 60px
+
+h2
+    font-size: 50px
+    @extend %positionRelative
+    @extend %uppercase
+    @extend .text-align-center
+    padding-bottom: 40px
+    &:after
+        @extend %positionAbsolute
+        left: 50%
+        bottom: 0px
+        @extend %displayBlock
+        content: ""
+        width: 3px
+        height: 40px
+        background: $mainColor
+
+h3
+    font-size: 40px
+
+h4
+    font-size: 32px
+
+h5
+    font-size: 28px
+    margin-bottom: 30px
+
+h6
+    font-size: 16px
+
+.head
+    overflow: hidden
+    @extend %positionRelative
+
+.bg
+    @extend %positionAbsolute
+    top: 0
+    left: 0
+    z-index: -1
+    opacity: 0.1
+    min-height: 100%
+    max-height: 100%
+    min-width: 100%
+
+.facebook-bar
+    @extend .text-align-center
+    @extend %uppercase
+    @extend %borderBox
+    @extend %positionRelative
+    @extend %displayBlock
+    font-size: 14px
+    top: 0
+    left: 0
+    background: rgba(0,0,0,0.2)
+    width: 100%
+    padding: 10px
+
+#close
+    @extend %displayBlock
+    @extend %positionAbsolute
+    top: 50%
+    right: 10px
+    width: 32px
+    height: 32px
+    transform: translateY(-50%)
+    cursor: pointer
+    &:before, &:after
+        @extend %displayBlock
+        @extend %positionAbsolute
+        top: 50%
+        left: 50%
+        content: ""
+        width: 16px
+        height: 2px
+        background: #fff
+    &:before
+        transform: translateX(-50%) translateY(-50%) rotate(45deg)
+    &:after
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg)
+
+
+header
+    @extend %positionRelative
+    display: flex
+    min-height: 100vh
+    align-items: center
+    flex-direction: column
+    #logo
+        @extend %positionAbsolute
+        top: 25px
+        left: 0
+        width: 100%
+    #phrase
+        flex: 1 1 auto
+        @extend %displayFlex
+        align-items: center
+    .logo
+        @extend %displayBlock
+        @extend %floatLeft
+        width: 270px
+        height: 88px
+        background: url('../img/logo.svg') no-repeat center center
+    nav
+        @extend %floatRight
+        padding: 25px 0
+        li
+            @extend %floatLeft
+            &:last-child
+                margin-left: 20px
+                a
+                    @extend .btn-inline
+        a
+            @extend %uppercase
+            @extend %displayBlock
+            padding: 10px 15px
+            font-size: 14px
+
+    h1
+        @extend .text-align-center
+        margin: 0 auto
+        color: $fontColor
+        max-width: 650px
+        line-height: 1em
+        span
+            color: $mainColor
+    .arrow
+        @extend %positionAbsolute
+        bottom: 60px
+
+.mobile-menu
+    @extend %displayNone
+    color: $fontColor
+    border: 3px solid $mainColor
+    i
+        margin-left: 20px
+        font-size: 1.35em
+
+.photo-tl
+    @extend %positionRelative
+    @extend %floatRight
+    display: inline-block
+    margin-right: 50px
+    img
+        @extend %positionRelative
+        top: -50px
+    &:before
+        @extend %displayBlock
+        @extend %positionAbsolute
+        content: ""
+        width: 90%
+        height: 75%
+        top: 10px
+        border-top: 3px solid $mainColor
+        border-left: 3px solid $mainColor
+
+.btn-inline
+    @extend %uppercase
+    border: 3px solid $mainColor
+    padding: 7px 20px
+    display: inline-block
+    font-weight: 700
+    background: transparent
+    color: #fff
+    cursor: pointer
+
+.btn-block
+    @extend .btn-inline
+    @extend %displayBlock
+    font-size: 20px
+    padding: 10px 20px
+
+.link-list
+    li
+        margin: 20px 0
+        a:after
+            font: 0.8em FontAwesome
+            content: "\f061"
+            margin-left: 5px
+ul.third
+    @extend .clearfix
+    @extend %displayFlex
+    flex-wrap: wrap
+    li
+        @extend %borderBox
+        flex: 1 1 33.33%
+        max-width: 33%
+        min-width: 300px
+        @extend %displayFlex
+        flex-direction: column
+        justify-content: space-between
+        padding: 0 50px
+        margin-bottom: 100px
+
+ul.grid
+    @extend %displayFlex
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    li
+        @extend %borderBox
+        flex: 1 1 20%
+        // box-shadow: inset 0px 0px 2px red
+        a
+            @extend %displayBlock
+            @extend .text-align-center
+            padding: 30px 0
+
+.photo
+    width: 220px
+    height: 220px
+    margin: 0 auto 40px auto
+
+.drop-line
+    @extend %positionRelative
+    margin-bottom: 40px
+    & > img, & > div
+        @extend %positionRelative
+        background: $background
+        z-index: 1
+    &:before
+        @extend %displayBlock
+        @extend %positionAbsolute
+        content: ""
+        top: 20px
+        left: -20px
+        width: 100%
+        height: 100%
+        border: 3px solid $mainColor
+        z-index: 0
+
+.drop-line-small
+    @extend .drop-line
+    &:before
+        top: 10px
+        left: -10px
+
+
+#about-content
+    margin-bottom: 70px
+
+.video-wrapper
+    @extend %positionRelative
+    padding-bottom: 56.25%
+    height: 0
+    iframe
+        @extend %positionAbsolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+.more
+    font-size: 25px
+    color: $mainColor
+    font-weight: 700
+    margin-right: 20px
+    i
+        margin-left: 10px
+
+.side-videos
+    padding-left: 20px
+    div:first-child
+        margin-bottom: 20px
+
+form
+    @extend %displayFlex
+    flex-wrap: wrap
+    width: 100%
+    .field
+        @extend %borderBox
+        flex: 1 1 50%
+        padding: 0px 20px 20px 0px
+        &.full
+            flex: 1 1 100%
+    input, textarea
+        @extend %borderBox
+        font: 18px 'Dosis', sans-serif
+        width: 100%
+        border: 3px solid transparent
+        padding: 15px 20px
+        &:focus
+            outline: none
+            border-color: $mainColor
+
+#contato
+    background: url('../img/symbol.svg') no-repeat -200px center
+    background-size: 650px
+
+footer
+    ul
+        @extend .text-align-center
+        li
+            display: inline
+            a
+                font-size: 25px
+                color: $mainColor
+                padding: 10px
+
+.nomargin
+    margin: 0
+
+.no-padding-left
+    padding-left: 0px
+
+.no-padding-right
+    padding-right: 0px
+
+.no-padding-bottom
+    padding-bottom: 0px
+
+.v-bottom
+    align-self: flex-end
+
+@import 'rwd'

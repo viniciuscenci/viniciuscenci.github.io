@@ -1,0 +1,96 @@
+@media (max-width: 1300px)
+    .wrapper
+        box-sizing: border-box
+        max-width: 100%
+        margin: 0 50px
+
+@media (max-width: 1200px)
+    #about
+        div[class^="col"]
+            max-width: 50%
+    #about-content
+        flex-grow: 1
+        flex-basis: 50%
+
+@media (max-width: 1000px)
+    header
+        nav
+            padding-top: 20px
+        ul
+            display: none
+        .mobile-menu
+            display: block
+
+@media (max-width: 999px)
+    ul.third
+        li
+            max-width: 50%
+
+@media (max-width: 800px)
+    .head
+        margin-bottom: 100px
+    #about
+        .photo-tl
+            max-width: 70%
+            img
+                width: 100%
+
+@media (max-width: 700px)
+    ul.third
+        justify-content: center
+        li
+            max-width: 80%
+            text-align: center
+
+@media (max-width: 650px)
+    .head
+        margin-bottom: 0px
+    .container
+        flex-wrap: wrap
+
+    div[class*="col-"], #about div[class*="col-"]
+        flex-basis: 100%
+        max-width: 100%
+
+    div[class*="offset-"]
+        margin-left: 0px
+
+    .side-videos, .featured-video
+        padding: 0
+
+    .featured-video .video-wrapper
+        margin-bottom: 20px
+
+    .odd-section.double-padding
+        padding: 100px 0
+
+    .link-list
+        margin-top: 100px
+
+
+@media (max-width: 550px)
+    ul.third
+        li
+            max-width: 100%
+
+@media (max-width: 500px)
+    .wrapper
+        margin: 0 20px
+    header
+        .logo
+            max-width: 65%
+            background-size: contain
+        h1
+            font-size: 45px
+            font-size: 10vw
+    .mobile-menu
+        display: inline-block
+        margin: 0 auto
+
+
+@media (max-width: 400px)
+    .mobile-menu
+        span
+            display: none
+        i
+            margin: 0
